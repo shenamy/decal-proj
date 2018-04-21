@@ -1,3 +1,16 @@
 
 <h5>Use your points to buy armor for your character.</h5>
-<%= @sheens.size %>
+
+<div class="row">
+  <% @items.each do |i| %>
+    <div class="col-md-3 centered">
+      <%= image_tag("#{i.name}.svg", :size => "100x100") %>
+      <br>
+      <%= i.name %>
+      <br>
+      <%= i.cost %> points
+      <%= button_to "Buy", store_path, :class => "btn btn-primary", :method => :get %>
+      <br>
+    </div>
+  <% end %>
+</div>

@@ -5,7 +5,9 @@ class HomeController < ApplicationController
 
   def store
     #@user = User.find(current_user.id)
-    @sheens = Avatar.all 
+    @items = Item.all
 
   end
+
+
 end
