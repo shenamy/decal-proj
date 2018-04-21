@@ -4,16 +4,13 @@
     <title>Pawductivity</title>
     <%= csrf_meta_tags %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
-
-  <body>
 
     <nav class="navbar fixed-top navbar-dark bg-primary">
       <div class="container-fluid">
           <div class="navbar-header">
-            <a class="navbar-brand" href="#!">Pawductivity</a>
+            <a class="navbar-brand" href="http://localhost:3000">Pawductivity</a>
           </div>
           <div class="navbar-text pull-right">
             <% if user_signed_in? %>
@@ -24,9 +21,16 @@
               <%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link'  %> |
               <%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %>
             <% end %>
+            <br>
+            <p style="float:right">
+              Points: <%= current_user.points %>
+            </p>
           </div>
         </div>
     </nav>
+  </head>
+
+  <body>
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
     <%= yield %>

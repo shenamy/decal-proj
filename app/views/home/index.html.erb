@@ -1,20 +1,8 @@
-
-<h3>Welcome to Pawductivity</h3>
-
-<%= image_tag("defaultpusheen.gif") %>
+<%= image_tag("default.gif") %>
 Level: <%= @user.level %>
-
+<%= button_to "Store", store_path, form: {style: "display:inline-block"}, :class => "btn btn-primary", :method => :get %>
 
 <form class="form_style">
         <input type="text" class="search" placeholder="add a new task" required>
         <input type="button" class="button" value="Add">
-      	
 </form>
-<style type="text/css" media="screen">
-.form_style {
-    width:300px;
-    margin:5px ;
-    float:right;
-    top:-20px;
-}
- </style>
