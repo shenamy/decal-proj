@@ -4,4 +4,5 @@ Rails.application.routes.draw do
   root to: 'home#index'
 
   get '/store', to: 'home#store', as: 'store'
+  patch '/store', to: 'items#buy', as: 'buy'
 end

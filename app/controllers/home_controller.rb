@@ -1,6 +1,7 @@
 class HomeController < ApplicationController
   def index
     @user = User.find(current_user.id)
+    @item = Item.find(@user.item_id)
   end
 
   def store

@@ -1,6 +1,12 @@
-<%= image_tag("default.gif") %>
-Level: <%= @user.level %>
-<%= button_to "Store", store_path, form: {style: "display:inline-block"}, :class => "btn btn-primary", :method => :get %>
+<div style="display:inline-block">
+  <%= image_tag("default.gif") %>
+  <br>
+  Level: <%= @user.level %>
+  <br>
+  Equipped: <%= @item.name %>
+  <br>
+  <%= button_to "Store", store_path, form: {style: "display:inline-block"}, :class => "btn btn-primary", :method => :get %>
+</div>
 
 <form class="form_style">
         <input type="text" class="search" placeholder="add a new task" required>
