@@ -12,3 +12,23 @@
  *
  */
  @import "bootstrap";
+
+ .form_style {
+     width:300px;
+     margin:5px ;
+     float:right;
+     top:-20px;
+ }
+
+ body {
+   padding-top: 75px;
+ }
+
+.centered {
+  text-align: center;
+}
+
+.error {
+  margin-left: 2em;
+  margin-right: 2em;
+}
