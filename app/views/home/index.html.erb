@@ -1,20 +1,31 @@
 
-<h3>Welcome to Pawductivity</h3>
+	<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-8">
+            <h3>Welcome to Pawductivity</h3>
 
-<%= image_tag("defaultpusheen.gif") %>
-Level: <%= @user.level %>
+			<%= image_tag("defaultpusheen.gif") %>
+			Level: <%= @user.level %>
+        </div>
+        <div class="col-lg-4">
+            <h2>Tasks</h2>
+            <p> 
+                <%= simple_form_for @task, :url => {:action => "create", :controller => "tasks"} do |f| %>
 
+		<%= f.input :description, placeholder: "add a new task", :input_html => {:style=> 'float:right'}%> 
+		<%= f.input :value, placeholder: "difficulty: 1-10", :input_html => {:style=> 'float:right'} %> 
+		<%= f.button :submit, class: "btn-primary", style: "float:right"%> 
 
-<form class="form_style">
-        <input type="text" class="search" placeholder="add a new task" required>
-        <input type="button" class="button" value="Add">
-      	
-</form>
-<style type="text/css" media="screen">
-.form_style {
-    width:300px;
-    margin:5px ;
-    float:right;
-    top:-20px;
-}
- </style>
+		<%end %>
+            </p>
+            <p>
+	<%if @user.tasks%>
+		<%@user.tasks.each do |task| %>
+		<br/>
+			<%= task.description %> <%= task.value%>
+		<%end%>
+	<%end%>
+	</p>
+        </div>
+    </div>
+</div>
