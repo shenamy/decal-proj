@@ -1,4 +1,5 @@
 class ItemsController < ApplicationController
+  @@trainingPoints = 30
   def buy
     item = Item.find(params[:id])
     if current_user.points < item.cost
@@ -7,6 +8,7 @@ class ItemsController < ApplicationController
       user = User.find(current_user.id)
       user.points -= item.cost
       user.item_id = params[:id]
+      user.tpoints = user.points + @@trainingPoints
       user.save
       flash[:success] = "Bought item."
     end

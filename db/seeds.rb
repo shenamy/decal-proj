@@ -10,13 +10,14 @@
 %w(bread cheetos harrypotter lazy pikachu rainbow sombrero default).each do |name|
   a = Avatar.new
   a.name = name
-  a.gif = name+".gif"
   a.save!
 end
 
-%w(Backpack Calculator Chair Compass Computer Lamp Eraser Flask Mouse Pen Pencil Ruler Textbook).each do |name|
+count = 1
+%w(Backpack Calculator Compass Computer Lamp Eraser Mouse Pen Ruler Textbook).each do |name|
   i = Item.new
   i.name = name
-  i.cost = 5
+  i.cost = 100 * count
+  count += 1
   i.save!
 end

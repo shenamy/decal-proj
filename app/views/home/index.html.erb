@@ -1,16 +1,29 @@
 
 	<div class="container-fluid">
     <div class="row">
-        <div style="display:inline-block" class="col-lg-8">
-
-    			<%= image_tag("default.gif") %>
+        <div style="display:inline-block" class="col-md-4">
+					Avatars:
+					<% @avatars.each do |a| %>
+						<%= button_tag image_tag("#{a.name}.gif"), url: change_path(id: a.name), class: "button-img", :method => :patch %>
+						<br>
+					<% end %>
+					<br>
+    			<%= image_tag("#{@user.pic}.gif") %>
           <br>
     			Level: <%= @user.level %>
           <br>
-          Equipped: <%= @item.name %>
+					<% if @user.item_id != -1 %>
+						Equipped: <%= @item.name %>
+						<br>
+						In training.
+					<% else %>
+						<!-- FIX THE BUG HERE  -->
+						Equipped: None
+					<% end %>
           <br>
           <%= button_to "Store", store_path, form: {style: "display:inline-block"}, :class => "btn btn-primary", :method => :get %>
         </div>
+
         <div class="col-lg-4">
             <h2>Tasks</h2>
             <p>

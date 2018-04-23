@@ -9,7 +9,12 @@
       <%= i.name %>
       <br>
       <%= i.cost %> points
-      <%= button_to "Buy", buy_path(id: i.id), :class => "btn btn-primary", :method => :patch %>
+      <% if (@user.level + 1)*100 >= i.cost %>
+        <%= button_to "Buy", buy_path(id: i.id), :class => "btn btn-primary", :method => :patch %>
+      <% else %>
+        <br>
+        <button class="btn btn-primary disabled">Buy</button>
+      <% end %>
       <br>
     </div>
   <% end %>

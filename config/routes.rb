@@ -6,4 +6,5 @@ Rails.application.routes.draw do
   get '/store', to: 'home#store', as: 'store'
   patch '/store', to: 'items#buy', as: 'buy'
   post 'create' => 'tasks#create', as: 'create'
+  post '/', to: 'home#change', as: 'change'
 end
