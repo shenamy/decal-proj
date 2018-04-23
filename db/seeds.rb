@@ -6,18 +6,12 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-
-%w(bread cheetos harrypotter lazy pikachu rainbow sombrero default).each do |name|
-  a = Avatar.new
-  a.name = name
-  a.save!
+%w(0 1 2 3 4 5 6 7).each do |name|
+  Avatar.create(name: name)
 end
 
 count = 1
 %w(Backpack Calculator Compass Computer Lamp Eraser Mouse Pen Ruler Textbook).each do |name|
-  i = Item.new
-  i.name = name
-  i.cost = 100 * count
+  Item.create(name: name, cost: 100*count)
   count += 1
-  i.save!
 end

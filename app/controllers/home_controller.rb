@@ -1,6 +1,10 @@
 class HomeController < ApplicationController
   def index
     @user = User.find(current_user.id)
+    default = Avatar.where(name: "0", user_id: current_user.id)
+    if default.count == 0
+      Avatar.create(name: "0", user_id: current_user.id)
+    end
     @task = Task.new()
     if @user.item_id != -1
       @item = Item.find(@user.item_id)
@@ -19,8 +23,9 @@ class HomeController < ApplicationController
   end
 
   def change
+    @user = User.find(current_user.id)
     @user.pic = params[:id]
     @user.save
-    redirect_to store_path
+    redirect_to root_path
   end
 end

@@ -1,14 +1,13 @@
 
-	<div class="container-fluid">
+	<div class="container-fluid offset">
     <div class="row">
         <div style="display:inline-block" class="col-md-4">
 					Avatars:
 					<% @avatars.each do |a| %>
-						<%= button_tag image_tag("#{a.name}.gif"), url: change_path(id: a.name), class: "button-img", :method => :patch %>
-						<br>
+						<%= link_to(image_tag("#{a.name}pusheen.gif", :class => "button-img"), change_path(id: a.name), method: :patch) %>
 					<% end %>
 					<br>
-    			<%= image_tag("#{@user.pic}.gif") %>
+    				<%= image_tag("#{@user.pic}pusheen.gif", :class => "avatar-img") %>
           <br>
     			Level: <%= @user.level %>
           <br>
