@@ -7,4 +7,6 @@ Rails.application.routes.draw do
   patch '/store', to: 'items#buy', as: 'buy'
   post 'create' => 'tasks#create', as: 'create'
   patch '/', to: 'home#change', as: 'change'
+  patch 'delete', to: 'tasks#delete', as: 'delete'
+  patch 'complete', to: 'tasks#complete', as: 'complete'
 end

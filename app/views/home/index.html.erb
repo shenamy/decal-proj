@@ -39,8 +39,9 @@
             <p>
             	<%if @user.tasks%>
             		<%@user.tasks.each do |task| %>
+
             		<br/>
-            			<%= task.description %> <%= task.value%>
+            			<%= button_to "Done", complete_path(id: task), :method => :patch %><%= button_to "x", delete_path(id: task), :method => :patch %><%= task.description %> <%= task.value%> 
             		<%end%>
             	<%end%>
             	</p>

@@ -5191,3 +5191,484 @@ Processing by HomeController#index as HTML
 Completed 200 OK in 103ms (Views: 91.6ms | ActiveRecord: 1.5ms)
 
 
+Started GET "/" for 127.0.0.1 at 2018-04-21 19:20:44 -0700
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by HomeController#index as HTML
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mTask Load (1.4ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."user_id" = ?[0m  [["user_id", 2]]
+  Rendered home/index.html.erb within layouts/application (497.1ms)
+Completed 200 OK in 753ms (Views: 691.4ms | ActiveRecord: 4.6ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-04-25 20:47:49 -0700
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by HomeController#index as HTML
+  [1m[36mUser Load (1.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+Completed 401 Unauthorized in 30ms (ActiveRecord: 2.5ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2018-04-25 20:47:49 -0700
+Processing by Devise::SessionsController#new as HTML
+Started GET "/users/sign_in" for 127.0.0.1 at 2018-04-25 20:47:49 -0700
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (1.2ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (31.8ms)
+  Rendered devise/shared/_links.html.erb (0.2ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (136.4ms)
+Completed 200 OK in 6878ms (Views: 6871.3ms | ActiveRecord: 0.0ms)
+
+
+Completed 200 OK in 7040ms (Views: 7017.4ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2018-04-25 20:48:34 -0700
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"9Ru0rqCWGMY4JzMtK8+KtfbkgfS5b1sjGjd7AY4s5dBJuPIntmEHsOZAv2wuTj2owJFtB4j1cvUGUBb7gBn5Kw==", "user"=>{"email"=>"amyshen@berkeley.edu", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "amyshen@berkeley.edu"], ["LIMIT", 1]]
+Completed 401 Unauthorized in 9ms (ActiveRecord: 1.4ms)
+
+
+Processing by Devise::SessionsController#new as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"9Ru0rqCWGMY4JzMtK8+KtfbkgfS5b1sjGjd7AY4s5dBJuPIntmEHsOZAv2wuTj2owJFtB4j1cvUGUBb7gBn5Kw==", "user"=>{"email"=>"amyshen@berkeley.edu", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (0.9ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (8.0ms)
+Completed 200 OK in 284ms (Views: 116.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2018-04-25 20:48:38 -0700
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (0.8ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (23.5ms)
+Completed 200 OK in 134ms (Views: 131.5ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2018-04-25 20:49:25 -0700
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"iJslsyEH3vQWR+yaGRDYT2kCBjaL5CQ742FhCNNVZHabEP6e8c+aLIYPcDpYUPjC+vzL5rUORVxGgw+p1K7/xA==", "user"=>{"email"=>"amyshen@berkeley.edu", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "amyshen@berkeley.edu"], ["LIMIT", 1]]
+  [1m[35mSQL (3.5ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["email", "amyshen@berkeley.edu"], ["encrypted_password", "$2a$11$Zucpwb3bzwTF9GUO1NMd1OSdS2lI7YaZDeeiF7uPjDS1i9bliqXam"], ["created_at", "2018-04-26 03:49:25.446788"], ["updated_at", "2018-04-26 03:49:25.446788"]]
+  [1m[35m (2.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[33mUPDATE "users" SET "sign_in_count" = ?, "current_sign_in_at" = ?, "last_sign_in_at" = ?, "current_sign_in_ip" = ?, "last_sign_in_ip" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["sign_in_count", 1], ["current_sign_in_at", "2018-04-26 03:49:25.457400"], ["last_sign_in_at", "2018-04-26 03:49:25.457400"], ["current_sign_in_ip", "127.0.0.1"], ["last_sign_in_ip", "127.0.0.1"], ["updated_at", "2018-04-26 03:49:25.458581"], ["id", 2]]
+  [1m[35m (11.6ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 267ms (ActiveRecord: 18.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-04-25 20:49:25 -0700
+Processing by HomeController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (2.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "avatars" WHERE "avatars"."name" = ? AND "avatars"."user_id" = ?[0m  [["name", "0"], ["user_id", 2]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (1.7ms)[0m  [1m[32mINSERT INTO "avatars" ("created_at", "updated_at", "user_id", "name") VALUES (?, ?, ?, ?)[0m  [["created_at", "2018-04-26 03:49:25.602005"], ["updated_at", "2018-04-26 03:49:25.602005"], ["user_id", 2], ["name", "0"]]
+  [1m[35m (3.4ms)[0m  [1m[36mcommit transaction[0m
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mAvatar Load (0.3ms)[0m  [1m[34mSELECT "avatars".* FROM "avatars" WHERE "avatars"."user_id" = ?[0m  [["user_id", 2]]
+  [1m[36mTask Load (1.3ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."user_id" = ?[0m  [["user_id", 2]]
+  Rendered home/index.html.erb within layouts/application (143.9ms)
+Completed 200 OK in 313ms (Views: 255.9ms | ActiveRecord: 11.7ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-04-26 00:17:11 -0700
+  [1m[35m (1.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by HomeController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "avatars" WHERE "avatars"."name" = ? AND "avatars"."user_id" = ?[0m  [["name", "0"], ["user_id", 2]]
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mAvatar Load (0.4ms)[0m  [1m[34mSELECT "avatars".* FROM "avatars" WHERE "avatars"."user_id" = ?[0m  [["user_id", 2]]
+  [1m[36mTask Load (1.6ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."user_id" = ?[0m  [["user_id", 2]]
+  Rendered home/index.html.erb within layouts/application (601.3ms)
+Completed 200 OK in 860ms (Views: 787.4ms | ActiveRecord: 5.5ms)
+
+
+Started POST "/create" for 127.0.0.1 at 2018-04-26 00:18:17 -0700
+  
+SyntaxError (/Users/Amy/cs198/pawductivity/app/controllers/tasks_controller.rb:23: syntax error, unexpected end-of-input, expecting keyword_end):
+  
+app/controllers/tasks_controller.rb:23: syntax error, unexpected end-of-input, expecting keyword_end
+Started GET "/" for 127.0.0.1 at 2018-04-26 00:18:53 -0700
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by HomeController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "avatars" WHERE "avatars"."name" = ? AND "avatars"."user_id" = ?[0m  [["name", "0"], ["user_id", 2]]
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mAvatar Load (0.2ms)[0m  [1m[34mSELECT "avatars".* FROM "avatars" WHERE "avatars"."user_id" = ?[0m  [["user_id", 2]]
+  [1m[36mTask Load (0.4ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."user_id" = ?[0m  [["user_id", 2]]
+  Rendered home/index.html.erb within layouts/application (375.1ms)
+Completed 200 OK in 537ms (Views: 484.9ms | ActiveRecord: 3.5ms)
+
+
+Started POST "/create" for 127.0.0.1 at 2018-04-26 00:22:43 -0700
+Processing by TasksController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"je0RkrdWePlNtOtJuJpcv34WkbTxGblr22ozFLkamUYxTlcboaFnj5PTZwi9G+uiSGN9R8CDkL3HDV7uty+FvQ==", "task"=>{"description"=>"laundry", "value"=>"5"}, "commit"=>"Create Task"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35mSQL (2.4ms)[0m  [1m[32mINSERT INTO "tasks" ("description", "value", "created_at", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?)[0m  [["description", "laundry"], ["value", 5], ["created_at", "2018-04-26 07:22:43.528331"], ["updated_at", "2018-04-26 07:22:43.528331"], ["user_id", 2]]
+  [1m[35m (1.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 22ms (ActiveRecord: 5.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-04-26 00:22:43 -0700
+Processing by HomeController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "avatars" WHERE "avatars"."name" = ? AND "avatars"."user_id" = ?[0m  [["name", "0"], ["user_id", 2]]
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mAvatar Load (0.3ms)[0m  [1m[34mSELECT "avatars".* FROM "avatars" WHERE "avatars"."user_id" = ?[0m  [["user_id", 2]]
+  [1m[36mTask Load (0.1ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."user_id" = ?[0m  [["user_id", 2]]
+  Rendered home/index.html.erb within layouts/application (14.0ms)
+Completed 200 OK in 109ms (Views: 97.2ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-04-26 00:26:13 -0700
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by HomeController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "avatars" WHERE "avatars"."name" = ? AND "avatars"."user_id" = ?[0m  [["name", "0"], ["user_id", 2]]
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mAvatar Load (0.2ms)[0m  [1m[34mSELECT "avatars".* FROM "avatars" WHERE "avatars"."user_id" = ?[0m  [["user_id", 2]]
+  [1m[36mTask Load (0.3ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."user_id" = ?[0m  [["user_id", 2]]
+  Rendered home/index.html.erb within layouts/application (397.3ms)
+Completed 200 OK in 608ms (Views: 538.2ms | ActiveRecord: 3.8ms)
+
+
+Started POST "/create" for 127.0.0.1 at 2018-04-26 00:26:21 -0700
+Processing by TasksController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"lPlpVi2Ekf3Jcd8rjtI3TpTXSAPxU+TbJzvdP9WE2aUoWi/fO3OOixcWU2qLU4BToqKk8MDJzQ07XLDF27HFXg==", "task"=>{"description"=>"hw", "value"=>"10"}, "commit"=>"Create Task"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "tasks" ("description", "value", "created_at", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?)[0m  [["description", "hw"], ["value", 10], ["created_at", "2018-04-26 07:26:21.509779"], ["updated_at", "2018-04-26 07:26:21.509779"], ["user_id", 2]]
+  [1m[35m (1.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 14ms (ActiveRecord: 3.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-04-26 00:26:21 -0700
+Processing by HomeController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "avatars" WHERE "avatars"."name" = ? AND "avatars"."user_id" = ?[0m  [["name", "0"], ["user_id", 2]]
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mAvatar Load (0.2ms)[0m  [1m[34mSELECT "avatars".* FROM "avatars" WHERE "avatars"."user_id" = ?[0m  [["user_id", 2]]
+  [1m[36mTask Load (0.1ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."user_id" = ?[0m  [["user_id", 2]]
+  Rendered home/index.html.erb within layouts/application (18.7ms)
+Completed 200 OK in 128ms (Views: 118.5ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-04-26 00:27:15 -0700
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by HomeController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "avatars" WHERE "avatars"."name" = ? AND "avatars"."user_id" = ?[0m  [["name", "0"], ["user_id", 2]]
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mAvatar Load (0.2ms)[0m  [1m[34mSELECT "avatars".* FROM "avatars" WHERE "avatars"."user_id" = ?[0m  [["user_id", 2]]
+  [1m[36mTask Load (0.3ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."user_id" = ?[0m  [["user_id", 2]]
+  Rendered home/index.html.erb within layouts/application (407.0ms)
+Completed 200 OK in 661ms (Views: 600.4ms | ActiveRecord: 3.3ms)
+
+
+Started PATCH "/delete?id=1" for 127.0.0.1 at 2018-04-26 00:29:15 -0700
+  
+ActionController::RoutingError (uninitialized constant PokemonsController):
+  
+activesupport (5.1.6) lib/active_support/inflector/methods.rb:269:in `const_get'
+activesupport (5.1.6) lib/active_support/inflector/methods.rb:269:in `block in constantize'
+activesupport (5.1.6) lib/active_support/inflector/methods.rb:267:in `each'
+activesupport (5.1.6) lib/active_support/inflector/methods.rb:267:in `inject'
+activesupport (5.1.6) lib/active_support/inflector/methods.rb:267:in `constantize'
+actionpack (5.1.6) lib/action_dispatch/http/request.rb:85:in `controller_class_for'
+actionpack (5.1.6) lib/action_dispatch/http/request.rb:78:in `controller_class'
+actionpack (5.1.6) lib/action_dispatch/routing/route_set.rb:43:in `controller'
+actionpack (5.1.6) lib/action_dispatch/routing/route_set.rb:29:in `serve'
+actionpack (5.1.6) lib/action_dispatch/journey/router.rb:50:in `block in serve'
+actionpack (5.1.6) lib/action_dispatch/journey/router.rb:33:in `each'
+actionpack (5.1.6) lib/action_dispatch/journey/router.rb:33:in `serve'
+actionpack (5.1.6) lib/action_dispatch/routing/route_set.rb:844:in `call'
+warden (1.2.7) lib/warden/manager.rb:36:in `block in call'
+warden (1.2.7) lib/warden/manager.rb:35:in `catch'
+warden (1.2.7) lib/warden/manager.rb:35:in `call'
+rack (2.0.4) lib/rack/etag.rb:25:in `call'
+rack (2.0.4) lib/rack/conditional_get.rb:38:in `call'
+rack (2.0.4) lib/rack/head.rb:12:in `call'
+rack (2.0.4) lib/rack/session/abstract/id.rb:232:in `context'
+rack (2.0.4) lib/rack/session/abstract/id.rb:226:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/cookies.rb:613:in `call'
+activerecord (5.1.6) lib/active_record/migration.rb:556:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/callbacks.rb:26:in `block in call'
+activesupport (5.1.6) lib/active_support/callbacks.rb:97:in `run_callbacks'
+actionpack (5.1.6) lib/action_dispatch/middleware/callbacks.rb:24:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/debug_exceptions.rb:59:in `call'
+web-console (3.6.0) lib/web_console/middleware.rb:137:in `call_app'
+web-console (3.6.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.6.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.6.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.6) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.6) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.6) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.4) lib/rack/method_override.rb:22:in `call'
+rack (2.0.4) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.6) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.4) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.6) lib/rails/engine.rb:522:in `call'
+puma (3.11.4) lib/puma/configuration.rb:225:in `call'
+puma (3.11.4) lib/puma/server.rb:632:in `handle_request'
+puma (3.11.4) lib/puma/server.rb:446:in `process_client'
+puma (3.11.4) lib/puma/server.rb:306:in `block in run'
+puma (3.11.4) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/" for 127.0.0.1 at 2018-04-26 00:30:17 -0700
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by HomeController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "avatars" WHERE "avatars"."name" = ? AND "avatars"."user_id" = ?[0m  [["name", "0"], ["user_id", 2]]
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mAvatar Load (0.2ms)[0m  [1m[34mSELECT "avatars".* FROM "avatars" WHERE "avatars"."user_id" = ?[0m  [["user_id", 2]]
+  [1m[36mTask Load (0.4ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."user_id" = ?[0m  [["user_id", 2]]
+  Rendered home/index.html.erb within layouts/application (406.9ms)
+Completed 200 OK in 599ms (Views: 538.4ms | ActiveRecord: 3.3ms)
+
+
+Started PATCH "/delete?id=1" for 127.0.0.1 at 2018-04-26 00:30:36 -0700
+Processing by TasksController#delete as HTML
+  Parameters: {"authenticity_token"=>"cMOtmTYYP2a5wJySfy1EIHfL5PMzPvHxwzKfGfCKj+vMYOsQIO8gEGenENN6rPM9Qb4IAAKk2CffVfLj/r+TEA==", "id"=>"1"}
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mTask Load (0.2ms)[0m  [1m[34mSELECT  "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (2.9ms)[0m  [1m[31mDELETE FROM "tasks" WHERE "tasks"."id" = ?[0m  [["id", 1]]
+  [1m[35m (1.7ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 13ms (ActiveRecord: 5.7ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-04-26 00:30:36 -0700
+Processing by HomeController#index as HTML
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "avatars" WHERE "avatars"."name" = ? AND "avatars"."user_id" = ?[0m  [["name", "0"], ["user_id", 2]]
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mAvatar Load (0.2ms)[0m  [1m[34mSELECT "avatars".* FROM "avatars" WHERE "avatars"."user_id" = ?[0m  [["user_id", 2]]
+  [1m[36mTask Load (0.4ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."user_id" = ?[0m  [["user_id", 2]]
+  Rendered home/index.html.erb within layouts/application (17.9ms)
+Completed 200 OK in 123ms (Views: 114.6ms | ActiveRecord: 1.6ms)
+
+
+Started PATCH "/delete?id=1" for 127.0.0.1 at 2018-04-26 00:35:26 -0700
+Processing by TasksController#delete as HTML
+  Parameters: {"authenticity_token"=>"62fMI5Nbk+4S2GzvEc8yiSbx3KV3hJ7JCmhMsFZh3RtXxIqqhayMmMy/4K4UToWUEIQwVkYetx8WDyFKWFTB4A==", "id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mTask Load (0.2ms)[0m  [1m[34mSELECT  "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 404 Not Found in 29ms (ActiveRecord: 2.1ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Task with 'id'=1):
+  
+app/controllers/tasks_controller.rb:18:in `delete'
+Started GET "/" for 127.0.0.1 at 2018-04-26 00:35:30 -0700
+Processing by HomeController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "avatars" WHERE "avatars"."name" = ? AND "avatars"."user_id" = ?[0m  [["name", "0"], ["user_id", 2]]
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mAvatar Load (0.3ms)[0m  [1m[34mSELECT "avatars".* FROM "avatars" WHERE "avatars"."user_id" = ?[0m  [["user_id", 2]]
+  [1m[36mTask Load (0.2ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."user_id" = ?[0m  [["user_id", 2]]
+  Rendered home/index.html.erb within layouts/application (26.1ms)
+Completed 200 OK in 113ms (Views: 88.3ms | ActiveRecord: 2.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-04-26 00:39:42 -0700
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by HomeController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "avatars" WHERE "avatars"."name" = ? AND "avatars"."user_id" = ?[0m  [["name", "0"], ["user_id", 2]]
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mAvatar Load (0.3ms)[0m  [1m[34mSELECT "avatars".* FROM "avatars" WHERE "avatars"."user_id" = ?[0m  [["user_id", 2]]
+  [1m[36mTask Load (0.2ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."user_id" = ?[0m  [["user_id", 2]]
+  Rendered home/index.html.erb within layouts/application (540.0ms)
+Completed 200 OK in 745ms (Views: 676.0ms | ActiveRecord: 2.8ms)
+
+
+Started PATCH "/delete?id=2" for 127.0.0.1 at 2018-04-26 00:39:48 -0700
+Processing by TasksController#delete as HTML
+  Parameters: {"authenticity_token"=>"KWpQeGBPiRdrI6d9hr76Lq1SAhwuzReKCsdOqJsGFRyVyRbxdriWYbVEKzyDP00zmyfu7x9XPlwWoCNSlTMJ5w==", "id"=>"2"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mTask Load (0.2ms)[0m  [1m[34mSELECT  "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[31mDELETE FROM "tasks" WHERE "tasks"."id" = ?[0m  [["id", 2]]
+  [1m[35m (2.1ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 8ms (ActiveRecord: 3.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-04-26 00:39:48 -0700
+Processing by HomeController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "avatars" WHERE "avatars"."name" = ? AND "avatars"."user_id" = ?[0m  [["name", "0"], ["user_id", 2]]
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mAvatar Load (0.6ms)[0m  [1m[34mSELECT "avatars".* FROM "avatars" WHERE "avatars"."user_id" = ?[0m  [["user_id", 2]]
+  [1m[36mTask Load (0.1ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."user_id" = ?[0m  [["user_id", 2]]
+  Rendered home/index.html.erb within layouts/application (13.9ms)
+Completed 200 OK in 123ms (Views: 112.5ms | ActiveRecord: 1.5ms)
+
+
+Started POST "/create" for 127.0.0.1 at 2018-04-26 00:40:22 -0700
+Processing by TasksController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"mKqN0oSwNm7DwiBw+00E9P8u6Atfy3iroFUH4/N3wxgkCctbkkcpGB2lrDH+zLPpyVsE+G5RUX28MmoZ/ULf4w==", "task"=>{"description"=>"hw", "value"=>"10"}, "commit"=>"Create Task"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35mSQL (1.0ms)[0m  [1m[32mINSERT INTO "tasks" ("description", "value", "created_at", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?)[0m  [["description", "hw"], ["value", 10], ["created_at", "2018-04-26 07:40:22.124925"], ["updated_at", "2018-04-26 07:40:22.124925"], ["user_id", 2]]
+  [1m[35m (1.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 19ms (ActiveRecord: 4.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-04-26 00:40:22 -0700
+Processing by HomeController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "avatars" WHERE "avatars"."name" = ? AND "avatars"."user_id" = ?[0m  [["name", "0"], ["user_id", 2]]
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mAvatar Load (0.2ms)[0m  [1m[34mSELECT "avatars".* FROM "avatars" WHERE "avatars"."user_id" = ?[0m  [["user_id", 2]]
+  [1m[36mTask Load (0.1ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."user_id" = ?[0m  [["user_id", 2]]
+  Rendered home/index.html.erb within layouts/application (11.8ms)
+Completed 200 OK in 90ms (Views: 77.2ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-04-26 00:40:55 -0700
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by HomeController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "avatars" WHERE "avatars"."name" = ? AND "avatars"."user_id" = ?[0m  [["name", "0"], ["user_id", 2]]
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mAvatar Load (0.3ms)[0m  [1m[34mSELECT "avatars".* FROM "avatars" WHERE "avatars"."user_id" = ?[0m  [["user_id", 2]]
+  [1m[36mTask Load (0.2ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."user_id" = ?[0m  [["user_id", 2]]
+  Rendered home/index.html.erb within layouts/application (547.9ms)
+Completed 200 OK in 710ms (Views: 651.3ms | ActiveRecord: 3.6ms)
+
+
+Started PATCH "/complete?id=3" for 127.0.0.1 at 2018-04-26 00:40:59 -0700
+Processing by TasksController#complete as HTML
+  Parameters: {"authenticity_token"=>"uqdYUVmcKTKSkNXvQwWiKB6zTzQ5fqZ0Cvoej6gF+54GBB7YT2s2REz3Wa5GhBU1KMajxwjkj6IWnXN1pjDnZQ==", "id"=>"3"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mTask Load (0.2ms)[0m  [1m[34mSELECT  "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[31mDELETE FROM "tasks" WHERE "tasks"."id" = ?[0m  [["id", 3]]
+  [1m[35m (1.7ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 7ms (ActiveRecord: 2.6ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-04-26 00:40:59 -0700
+Processing by HomeController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "avatars" WHERE "avatars"."name" = ? AND "avatars"."user_id" = ?[0m  [["name", "0"], ["user_id", 2]]
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mAvatar Load (0.2ms)[0m  [1m[34mSELECT "avatars".* FROM "avatars" WHERE "avatars"."user_id" = ?[0m  [["user_id", 2]]
+  [1m[36mTask Load (0.2ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."user_id" = ?[0m  [["user_id", 2]]
+  Rendered home/index.html.erb within layouts/application (11.6ms)
+Completed 200 OK in 89ms (Views: 82.8ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-04-26 00:43:44 -0700
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by HomeController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "avatars" WHERE "avatars"."name" = ? AND "avatars"."user_id" = ?[0m  [["name", "0"], ["user_id", 2]]
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mAvatar Load (0.2ms)[0m  [1m[34mSELECT "avatars".* FROM "avatars" WHERE "avatars"."user_id" = ?[0m  [["user_id", 2]]
+  [1m[36mTask Load (0.3ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."user_id" = ?[0m  [["user_id", 2]]
+  Rendered home/index.html.erb within layouts/application (390.3ms)
+Completed 200 OK in 598ms (Views: 536.2ms | ActiveRecord: 3.9ms)
+
+
+Started POST "/create" for 127.0.0.1 at 2018-04-26 00:43:50 -0700
+Processing by TasksController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"rGTXcgEjIv86+TPy2woYBCxy7bD886kXqKrPsmiyEyEQx5H7F9Q9ieSev7Pei68ZGgcBQ81pgMG0zaJIZocP2g==", "task"=>{"description"=>"hw", "value"=>"10"}, "commit"=>"Create Task"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "tasks" ("description", "value", "created_at", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?)[0m  [["description", "hw"], ["value", 10], ["created_at", "2018-04-26 07:43:50.583773"], ["updated_at", "2018-04-26 07:43:50.583773"], ["user_id", 2]]
+  [1m[35m (1.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 21ms (ActiveRecord: 2.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-04-26 00:43:50 -0700
+Processing by HomeController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "avatars" WHERE "avatars"."name" = ? AND "avatars"."user_id" = ?[0m  [["name", "0"], ["user_id", 2]]
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mAvatar Load (0.2ms)[0m  [1m[34mSELECT "avatars".* FROM "avatars" WHERE "avatars"."user_id" = ?[0m  [["user_id", 2]]
+  [1m[36mTask Load (0.1ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."user_id" = ?[0m  [["user_id", 2]]
+  Rendered home/index.html.erb within layouts/application (18.4ms)
+Completed 200 OK in 120ms (Views: 110.6ms | ActiveRecord: 1.3ms)
+
+
+Started PATCH "/complete?id=4" for 127.0.0.1 at 2018-04-26 00:43:52 -0700
+Processing by TasksController#complete as HTML
+  Parameters: {"authenticity_token"=>"qnmTgoqUBMYpCX93P/OvRDfOgojJuIrsU9IyirIKc9YW2tULnGMbsPdu8zY6chhZAbtue/giozpPtV9wvD9vLQ==", "id"=>"4"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mTask Load (0.2ms)[0m  [1m[34mSELECT  "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[33mUPDATE "users" SET "points" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["points", 10], ["updated_at", "2018-04-26 07:43:52.248128"], ["id", 2]]
+  [1m[35m (1.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[31mDELETE FROM "tasks" WHERE "tasks"."id" = ?[0m  [["id", 4]]
+  [1m[35m (1.9ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 14ms (ActiveRecord: 5.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-04-26 00:43:52 -0700
+Processing by HomeController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "avatars" WHERE "avatars"."name" = ? AND "avatars"."user_id" = ?[0m  [["name", "0"], ["user_id", 2]]
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mAvatar Load (0.3ms)[0m  [1m[34mSELECT "avatars".* FROM "avatars" WHERE "avatars"."user_id" = ?[0m  [["user_id", 2]]
+  [1m[36mTask Load (0.2ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."user_id" = ?[0m  [["user_id", 2]]
+  Rendered home/index.html.erb within layouts/application (10.3ms)
+Completed 200 OK in 64ms (Views: 58.5ms | ActiveRecord: 1.0ms)
+
+
