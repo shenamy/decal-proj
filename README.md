@@ -1,6 +1,6 @@
 **Title**: Pawductivity <br>
 **Team Members**: Sharie Wang, Amy Shen
-_
+<br>
 **Idea**: An appliation that gamifies productivity. You gain points by completing tasks of various difficulties, and you use these points to buy items that help you level up. When you level up, you gain new avatars to display on the home page.
 
 **Models and Description**: 
