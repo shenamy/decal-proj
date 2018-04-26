@@ -18,7 +18,7 @@
 						Equipped: None
 					<% end %>
 					<br>
-					<% if @user.tpoints and @user.points <= @user.tpoints %>
+					<% if @user.tpoints != 0 and @user.points <= @user.tpoints %>
 						In training. You need <%= @user.tpoints - @user.points %> more points to level up.<br>
 					<% end %>
           <br>
