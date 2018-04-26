@@ -8,4 +8,19 @@ class TasksController < ApplicationController
 		task.save
 		redirect_to '/'
 	end
+
+	def complete
+		task = Task.find(params[:id])
+		@user = User.find(current_user.id)
+		@user.points += task.value
+		@user.save
+		task.destroy
+		redirect_to '/'
+	end
+
+	def delete
+		task = Task.find(params[:id])
+		task.destroy
+		redirect_to '/'
+	end
 end
