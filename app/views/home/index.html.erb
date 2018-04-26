@@ -1,36 +1,38 @@
 
 	<div class="container-fluid offset">
     <div class="row">
-        <div style="display:inline-block" class="col-md-4">
+        <div style="margin-top:5%" class="col-md-6 centered">
+
+    			<%= image_tag("#{@user.pic}pusheen.gif", :class => "avatar-img") %>
+          <br>
 					Avatars:
 					<% @avatars.each do |a| %>
 						<%= link_to(image_tag("#{a.name}pusheen.gif", :class => "button-img"), change_path(id: a.name), method: :patch) %>
 					<% end %>
-					<br>
-    				<%= image_tag("#{@user.pic}pusheen.gif", :class => "avatar-img") %>
-          <br>
+					<br><br>
     			Level: <%= @user.level %>
           <br>
 					<% if @user.item_id != -1 %>
 						Equipped: <%= @item.name %>
 						<br>
-						In training.
 					<% else %>
-						<!-- FIX THE BUG HERE  -->
 						Equipped: None
 					<% end %>
+					<% if @user.points <= @user.tpoints %>
+						In training.
+					<% end %>
           <br>
-          <%= button_to "Store", store_path, form: {style: "display:inline-block"}, :class => "btn btn-primary", :method => :get %>
+          <%= button_to "Visit Store", store_path, form: {style: "display:inline-block"}, :class => "btn btn-primary", :method => :get %>
         </div>
 
-        <div class="col-lg-4">
-            <h2>Tasks</h2>
+        <div class="col-md-6 task centered">
+            <h2 style="margin-top: 5%">Tasks</h2>
             <p>
-                <%= simple_form_for @task, :url => {:action => "create", :controller => "tasks"} do |f| %>
+                <%= simple_form_for @task,:html => {:class => 'form-inline' }, :url => {:action => "create", :controller => "tasks"} do |f| %>
 
-            		<%= f.input :description, placeholder: "add a new task", :input_html => {:style=> 'float:right'}%>
-            		<%= f.input :value, placeholder: "difficulty: 1-10", :input_html => {:style=> 'float:right'} %>
-            		<%= f.button :submit, class: "btn-primary", style: "float:right"%>
+            		<%= f.input :description, label: false, placeholder: "add a new task"%>
+            		<%= f.input :value, label: false, placeholder: "difficulty: 1-10" %>
+            		<%= f.button :submit, class: "btn-primary"%>
 
             		<%end %>
             </p>

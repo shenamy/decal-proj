@@ -1,6 +1,8 @@
 class HomeController < ApplicationController
   def index
     @user = User.find(current_user.id)
+    @user.points = 30
+    @user.save
     default = Avatar.where(name: "0", user_id: current_user.id)
     if default.count == 0
       Avatar.create(name: "0", user_id: current_user.id)
@@ -9,8 +11,9 @@ class HomeController < ApplicationController
     if @user.item_id != -1
       @item = Item.find(@user.item_id)
     end
-    if @user.points >= @user.tpoints and @item and @user.level == (@item.cost / 100 - 1)
+    if @user.tpoints and @user.points >= @user.tpoints and @item and @user.level == (@item.cost / 100 - 1)
       @user.level += 1
+      @user.tpoints = 0
       @user.save
       Avatar.create(name: @user.level, user_id: current_user.id)
     end

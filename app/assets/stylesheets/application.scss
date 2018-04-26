@@ -20,6 +20,11 @@
      top:-20px;
  }
 
+ .form-inline div {
+   display: inline-block;
+   margin-right: 1em;
+ }
+
  body {
    padding-top: 75px;
  }
@@ -43,7 +48,11 @@
 .avatar-img {
   width:350px; /* you can use % */
   height: auto;
-  display: inline-block;
+}
+
+.task {
+  padding-left: 5%;
+  padding-right: 5%;
 }
 
 .offset {
