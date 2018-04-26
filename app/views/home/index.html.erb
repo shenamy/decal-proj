@@ -19,7 +19,7 @@
 					<% end %>
 					<br>
 					<% if @user.tpoints and @user.points <= @user.tpoints %>
-						In training. You need <%= @user.tpoints - @user.points %> points to level up.<br>
+						In training. You need <%= @user.tpoints - @user.points %> more points to level up.<br>
 					<% end %>
           <br>
           <%= button_to "Visit Store", store_path, form: {style: "display:inline-block"}, :class => "btn btn-primary", :method => :get %>
