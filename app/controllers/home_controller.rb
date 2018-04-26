@@ -1,8 +1,6 @@
 class HomeController < ApplicationController
   def index
     @user = User.find(current_user.id)
-    @user.points = 30
-    @user.save
     default = Avatar.where(name: "0", user_id: current_user.id)
     if default.count == 0
       Avatar.create(name: "0", user_id: current_user.id)

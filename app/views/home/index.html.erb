@@ -28,7 +28,7 @@
         <div class="col-md-6 task centered">
             <h2 style="margin-top: 5%">Tasks</h2>
             <p>
-                <%= simple_form_for @task,:html => {:class => 'form-inline' }, :url => {:action => "create", :controller => "tasks"} do |f| %>
+                <%= simple_form_for @task, :html => {:class => 'form-inline' }, :url => {:action => "create", :controller => "tasks"} do |f| %>
 
             		<%= f.input :description, label: false, placeholder: "add a new task"%>
             		<%= f.input :value, label: false, placeholder: "difficulty: 1-10" %>

@@ -24,7 +24,7 @@
             <br>
             <% if user_signed_in? %>
               <p style="float:right">
-                Points: <%= current_user.points %>
+                Points: <%= User.find(current_user.id).points %>
               </p>
             <% end %>
           </div>
